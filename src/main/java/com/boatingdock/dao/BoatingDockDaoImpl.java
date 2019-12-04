@@ -8,8 +8,11 @@ import java.util.Map;
 
 public class BoatingDockDaoImpl implements BoatingDockDao {
 
-    private Map<Integer, Boat> boats = new HashMap<>();
+    Map<Integer, Boat> boats = new HashMap<>();
     private Integer capacity;
+
+    public BoatingDockDaoImpl() {
+    }
 
     public BoatingDockDaoImpl(Integer capacity) {
         this.capacity = capacity;
@@ -42,6 +45,7 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
         if (boats.get(pierNumber) != null) {
             boats.put(pierNumber, null);
             return String.format(MessageConstant.LEAVE_SUCCESS, pierNumber);
+
         }
         return MessageConstant.LEAVE_FAILED;
     }
@@ -94,12 +98,9 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<Integer, Boat> boatEntry : boats.entrySet()) {
             if (boatEntry.getValue().getRegistrationNumber().equals(regNumber)) {
-                stringBuilder.append(String.format(MessageConstant.FIND_SLOTNUMBER_BY_REGNUMBER, boatEntry.getKey()));
-                break;
-            } else {
-                return MessageConstant.SLOT_NUMBER_NOTFOUND;
+                return stringBuilder.append(String.format(MessageConstant.FIND_SLOTNUMBER_BY_REGNUMBER, boatEntry.getKey())).toString();
             }
         }
-        return stringBuilder.toString();
+        return MessageConstant.SLOT_NUMBER_NOTFOUND;
     }
 }
