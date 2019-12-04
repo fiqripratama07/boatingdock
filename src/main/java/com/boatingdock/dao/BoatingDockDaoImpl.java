@@ -45,4 +45,23 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
         }
         return MessageConstant.LEAVE_FAILED;
     }
+
+    @Override
+    public String getStatus() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(MessageConstant.STATUS);
+        Integer pierNumber;
+        String registrationNumber;
+        String colour;
+        for (Map.Entry<Integer, Boat> boatEntry : boats.entrySet()) {
+            try {
+                pierNumber = boatEntry.getKey();
+                registrationNumber = boatEntry.getValue().getRegistrationNumber();
+                colour = boatEntry.getValue().getColour();
+                stringBuilder.append(String.format(MessageConstant.CONTENT_STATUS, pierNumber, registrationNumber, colour));
+            } catch (Exception e) {
+            }
+        }
+        return stringBuilder.toString();
+    }
 }
