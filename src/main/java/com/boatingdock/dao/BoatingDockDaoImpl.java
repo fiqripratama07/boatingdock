@@ -17,8 +17,8 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
 
     @Override
     public String createBoatingDock() {
-        for (int pearsNumber = 0; pearsNumber <= this.capacity ; pearsNumber++) {
-            this.Boats.put(pearsNumber,null);
+        for (int pearsNumber = 1; pearsNumber <= this.capacity ; pearsNumber++) {
+            Boats.put(pearsNumber,null);
         }
         return String.format(MessageConstant.CREATE_BOATING_DOCK,this.capacity);
     }
