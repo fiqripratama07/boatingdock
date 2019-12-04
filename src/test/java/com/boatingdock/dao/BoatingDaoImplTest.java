@@ -1,6 +1,8 @@
 package com.boatingdock.dao;
 
 import com.boatingdock.constant.MessageConstant;
+import com.boatingdock.model.Boat;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -14,6 +16,41 @@ public class BoatingDaoImplTest {
         Integer expectedCapaity = 6;
         String expectedString = String.format(MessageConstant.CREATE_BOATING_DOCK,expectedCapaity);
         String actualString = boatingDockDao.createBoatingDock();
+        assertEquals(expectedString,actualString);
+    }
+
+    @Test
+    public void dock_ShouldReturnMessageBoatingDockFull_whenBoatingDockIsFull() {
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(1);
+        boatingDockDao.createBoatingDock();
+        Boat firstBoat = new Boat("KA-01-HH-1234","White");
+        Boat secondBoat = new Boat("KA-01-HH-9999","White");
+        boatingDockDao.dock(firstBoat);
+        String expectedString = MessageConstant.BOATING_DOCK_FULL;
+        String actualString = boatingDockDao.dock(secondBoat);
+        assertEquals(expectedString,actualString);
+    }
+
+    @Test
+    public void dock_ShouldReturnMessageDockFailed_whenBoatIsExist() {
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(2);
+        boatingDockDao.createBoatingDock();
+        Boat firstBoat = new Boat("KA-01-HH-1234","White");
+        Boat secondBoat = new Boat("KA-01-HH-1234","White");
+        boatingDockDao.dock(firstBoat);
+        String expectedString = MessageConstant.DOCK_FAILED;
+        String actualString = boatingDockDao.dock(secondBoat);
+        assertEquals(expectedString,actualString);
+    }
+
+    @Test
+    public void dock_shouldReturnMessageDockSucces_whenBoatingDockIsExist(){
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(1);
+        boatingDockDao.createBoatingDock();
+        Boat firstBoat = new Boat("KA-01-HH-1234","White");
+        Integer expectedPierNumber = 1;
+        String expectedString = String.format(MessageConstant.DOCK_SUCCESS,expectedPierNumber);
+        String actualString = boatingDockDao.dock(firstBoat);
         assertEquals(expectedString,actualString);
     }
 }

@@ -1,5 +1,7 @@
 package com.boatingdock.model;
 
+import java.util.Objects;
+
 // Boat Class For manage all about Boat
 public class Boat {
 
@@ -26,5 +28,18 @@ public class Boat {
 
     public void setColour(String colour) {
         this.colour = colour;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Boat boat = (Boat) o;
+        return this.hashCode() == boat.hashCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(registrationNumber);
     }
 }
