@@ -1,0 +1,20 @@
+Created a boating dock with 6 piers
+Allocated pier number: 1
+Allocated pier number: 2
+Allocated pier number: 3
+Allocated pier number: 4
+Allocated pier number: 5
+Allocated pier number: 6
+Pier number 4 is free
+Pier No.   Registration No   Colour
+1          KA-01-HH-1234     White
+2          KA-01-HH-9999     White
+3          KA-01-BB-0001     Black
+5          KA-01-HH-2701     Blue
+6          KA-01-HH-3141     Black
+Allocated pier number: 4
+Sorry, boating dock is full
+KA-01-HH-1234, KA-01-HH-9999, KA-01-P-333
+1, 2, 4
+6
+Not found

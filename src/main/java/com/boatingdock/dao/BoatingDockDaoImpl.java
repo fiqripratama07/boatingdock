@@ -78,6 +78,8 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
             }
         }
         stringBuilder.replace(stringBuilder.lastIndexOf(","), stringBuilder.lastIndexOf(",") + 1, "");
+        stringBuilder.replace(stringBuilder.lastIndexOf(" "), stringBuilder.lastIndexOf(" ") + 1, "");
+
         return stringBuilder.toString();
     }
 
@@ -90,6 +92,7 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
             }
         }
         stringBuilder.replace(stringBuilder.lastIndexOf(","), stringBuilder.lastIndexOf(",") + 1, "");
+        stringBuilder.replace(stringBuilder.lastIndexOf(" "), stringBuilder.lastIndexOf(" ") + 1, "");
         return stringBuilder.toString();
     }
 

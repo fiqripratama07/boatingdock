@@ -8,6 +8,10 @@ public class Boat {
     private String registrationNumber;
     private String colour;
 
+    public Boat(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
     public Boat(String registrationNumber, String colour) {
         this.registrationNumber = registrationNumber;
         this.colour = colour;
