@@ -48,9 +48,32 @@ public class BoatingDaoImplTest {
         BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(1);
         boatingDockDao.createBoatingDock();
         Boat firstBoat = new Boat("KA-01-HH-1234","White");
-        Integer expectedPierNumber = 1;
-        String expectedString = String.format(MessageConstant.DOCK_SUCCESS,expectedPierNumber);
+        Integer expectedPiersNumber = 1;
+        String expectedString = String.format(MessageConstant.DOCK_SUCCESS,expectedPiersNumber);
         String actualString = boatingDockDao.dock(firstBoat);
+        assertEquals(expectedString,actualString);
+    }
+
+    @Test
+    public void leave_shouldReturnMessageLeaveFailed_whenBoatIsNotExist(){
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(1);
+        boatingDockDao.createBoatingDock();
+        Integer expectedPierNumber = 1;
+        String expectedString =MessageConstant.LEAVE_FAILED;
+        String actualString = boatingDockDao.leave(1);
+        assertEquals(expectedString,actualString);
+
+    }
+
+    @Test
+    public void leave_shouldReturnMessageLeaveSuccess_whenBoatingDock_andDockIsExist(){
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(1);
+        boatingDockDao.createBoatingDock();
+        Boat firstBoat = new Boat("KA-01-HH-1234","White");
+        boatingDockDao.dock(firstBoat);
+        Integer expectedPierNumber = 1;
+        String expectedString = String.format(MessageConstant.LEAVE_SUCCESS,expectedPierNumber);
+        String actualString = boatingDockDao.leave(1);
         assertEquals(expectedString,actualString);
     }
 }

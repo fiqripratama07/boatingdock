@@ -28,7 +28,6 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
         for (int pearsNumber = 1; pearsNumber <= this.capacity; pearsNumber++) {
             if (boats.get(pearsNumber) == null) {
                 if (!boats.containsValue(boat)) {
-                    System.out.println(boats.containsValue(boat));
                     boats.put(pearsNumber, boat);
                     return String.format(MessageConstant.DOCK_SUCCESS, pearsNumber);
                 }
@@ -36,5 +35,14 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
             }
         }
         return MessageConstant.BOATING_DOCK_FULL;
+    }
+
+    @Override
+    public String leave(Integer pierNumber) {
+        if (boats.get(pierNumber)!=null) {
+            boats.put(pierNumber, null);
+            return String.format(MessageConstant.LEAVE_SUCCESS, pierNumber);
+        }
+        return MessageConstant.LEAVE_FAILED;
     }
 }
