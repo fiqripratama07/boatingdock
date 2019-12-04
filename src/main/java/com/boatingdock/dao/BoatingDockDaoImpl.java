@@ -76,4 +76,16 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
         stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.lastIndexOf(",") + 1,"");
         return stringBuilder.toString();
     }
+
+    @Override
+    public String findSlotNumberByColour(String colour) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<Integer,Boat> boatEntry : boats.entrySet()){
+            if (boatEntry.getValue().getColour().equals(colour)){
+                stringBuilder.append(String.format(MessageConstant.FIND_SLOTNUMBER_BY_COLOUR,boatEntry.getKey()));
+            }
+        }
+        stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.lastIndexOf(",") + 1,"");
+        return stringBuilder.toString();
+    }
 }

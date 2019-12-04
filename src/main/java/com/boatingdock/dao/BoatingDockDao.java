@@ -9,4 +9,5 @@ public interface BoatingDockDao {
     public String leave(Integer pierNumber);
     public String getStatus();
     public String findRegNumberByColour(String colour);
+    public String findSlotNumberByColour(String colour);
 }
