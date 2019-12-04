@@ -103,6 +103,7 @@ public class BoatingDaoImplTest {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(String.format(MessageConstant.FIND_REGNUMBER_BY_COLOUR,secondBoat.getRegistrationNumber()));
         stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.lastIndexOf(",") + 1,"");
+        stringBuilder.replace(stringBuilder.lastIndexOf(" "), stringBuilder.lastIndexOf(" ") + 1, "");
         String expectedString = stringBuilder.toString();
         String actualString = boatingDockDao.findRegNumberByColour("Blue");
         assertEquals(expectedString,actualString);
@@ -120,6 +121,7 @@ public class BoatingDaoImplTest {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(String.format(MessageConstant.FIND_SLOTNUMBER_BY_COLOUR,expectedRegNumber));
         stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.lastIndexOf(",") + 1,"");
+        stringBuilder.replace(stringBuilder.lastIndexOf(" "), stringBuilder.lastIndexOf(" ") + 1, "");
         String expectedString = stringBuilder.toString();
         String actualString = boatingDockDao.findSlotNumberByColour("Red");
         assertEquals(expectedString,actualString);
