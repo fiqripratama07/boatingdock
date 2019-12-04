@@ -2,7 +2,6 @@ package com.boatingdock.dao;
 
 import com.boatingdock.constant.MessageConstant;
 import com.boatingdock.model.Boat;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

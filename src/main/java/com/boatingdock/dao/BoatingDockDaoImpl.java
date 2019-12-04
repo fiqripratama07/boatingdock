@@ -39,7 +39,7 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
 
     @Override
     public String leave(Integer pierNumber) {
-        if (boats.get(pierNumber)!=null) {
+        if (boats.get(pierNumber) != null) {
             boats.put(pierNumber, null);
             return String.format(MessageConstant.LEAVE_SUCCESS, pierNumber);
         }
