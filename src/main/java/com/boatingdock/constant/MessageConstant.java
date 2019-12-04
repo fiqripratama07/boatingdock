@@ -9,4 +9,5 @@ public class MessageConstant {
     public static final String LEAVE_FAILED = "Boat is not exist";
     public static final String STATUS = "Pier No.   Registration No   Colour\n";
     public static final String CONTENT_STATUS = "%d          %s     %s\n";
+    public static final String FIND_REGNUMBER_BY_COLOUR = "%s, ";
 }

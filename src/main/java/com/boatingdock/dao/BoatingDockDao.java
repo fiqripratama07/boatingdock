@@ -8,4 +8,5 @@ public interface BoatingDockDao {
     public String dock(Boat boat);
     public String leave(Integer pierNumber);
     public String getStatus();
+    public String findRegNumberByColour(String colour);
 }

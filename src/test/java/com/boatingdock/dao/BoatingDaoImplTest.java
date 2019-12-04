@@ -91,4 +91,20 @@ public class BoatingDaoImplTest {
         String actualString = boatingDockDao.getStatus();
         assertEquals(expectedString,actualString);
     }
+
+    @Test
+    public void findRegNumberByColour_shouldReturnMessageFindRegNumberByColour(){
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(2);
+        boatingDockDao.createBoatingDock();
+        Boat firstBoat = new Boat("KA-01-HH-1234","White");
+        Boat secondBoat = new Boat("KA-01-HH-9999","Blue");
+        boatingDockDao.dock(firstBoat);
+        boatingDockDao.dock(secondBoat);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(String.format(MessageConstant.FIND_REGNUMBER_BY_COLOUR,secondBoat.getRegistrationNumber()));
+        stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.lastIndexOf(",") + 1,"");
+        String expectedString = stringBuilder.toString();
+        String actualString = boatingDockDao.findRegNumberByColour("Blue");
+        assertEquals(expectedString,actualString);
+    }
 }

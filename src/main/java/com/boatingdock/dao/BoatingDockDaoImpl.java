@@ -64,4 +64,16 @@ public class BoatingDockDaoImpl implements BoatingDockDao {
         }
         return stringBuilder.toString();
     }
+
+    @Override
+    public String findRegNumberByColour(String colour) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<Integer,Boat> boatEntry : boats.entrySet()){
+            if (boatEntry.getValue().getColour().equals(colour)){
+                stringBuilder.append(String.format(MessageConstant.FIND_REGNUMBER_BY_COLOUR,boatEntry.getValue().getRegistrationNumber()));
+            }
+        }
+        stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.lastIndexOf(",") + 1,"");
+        return stringBuilder.toString();
+    }
 }
