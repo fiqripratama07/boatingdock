@@ -10,5 +10,7 @@ public class MessageConstant {
     public static final String STATUS = "Pier No.   Registration No   Colour\n";
     public static final String CONTENT_STATUS = "%d          %s     %s\n";
     public static final String FIND_REGNUMBER_BY_COLOUR = "%s, ";
-    public static final String FIND_SLOTNUMBER_BY_COLOUR = "%s, ";
+    public static final String FIND_SLOTNUMBER_BY_COLOUR = "%d, ";
+    public static final String FIND_SLOTNUMBER_BY_REGNUMBER ="%d";
+    public static final String SLOT_NUMBER_NOTFOUND ="Not found";
 }

@@ -124,4 +124,28 @@ public class BoatingDaoImplTest {
         String actualString = boatingDockDao.findSlotNumberByColour("Red");
         assertEquals(expectedString,actualString);
     }
+
+    @Test
+    public void findSlotNumberByRegistrationNumber_shouldReturn_messageSlotNumberNotFound_whenRegNumberIsNotExist(){
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(1);
+        boatingDockDao.createBoatingDock();
+        Boat firstBoat = new Boat("KA-01-HH-1234","White");
+        boatingDockDao.dock(firstBoat);
+        Integer expectedRegNumber = 1 ;
+        String expectedString = String.format(MessageConstant.SLOT_NUMBER_NOTFOUND);
+        String actualString = boatingDockDao.findSlotNumberByRegistrationNumber("KA-BB-CC");
+        assertEquals(expectedString,actualString);
+    }
+
+    @Test
+    public void findSlotNumberByRegistrationNumber_shouldReturn_MessageFindSlotNumberByRegNumber(){
+        BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(1);
+        boatingDockDao.createBoatingDock();
+        Boat firstBoat = new Boat("KA-01-HH-1234","White");
+        boatingDockDao.dock(firstBoat);
+        Integer expectedRegNumber = 1 ;
+        String expectedString = String.format(MessageConstant.FIND_SLOTNUMBER_BY_REGNUMBER,expectedRegNumber);
+        String actualString = boatingDockDao.findSlotNumberByRegistrationNumber("KA-01-HH-1234");
+        assertEquals(expectedString,actualString);
+    }
 }

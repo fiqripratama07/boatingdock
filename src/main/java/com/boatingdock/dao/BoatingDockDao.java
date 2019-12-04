@@ -10,4 +10,5 @@ public interface BoatingDockDao {
     public String getStatus();
     public String findRegNumberByColour(String colour);
     public String findSlotNumberByColour(String colour);
+    public String findSlotNumberByRegistrationNumber(String regNumber);
 }
