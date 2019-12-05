@@ -10,8 +10,6 @@ import java.io.IOException;
 public class BoatingDockInputProcessorImpl implements BoatingDockInputProcessor {
 
     BoatingDockDaoImpl boatingDockDao = new BoatingDockDaoImpl(6);
-
-
     @Override
     public String process(BufferedReader bufferedReader) throws IOException {
         String scan;
